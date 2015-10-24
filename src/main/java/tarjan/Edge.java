@@ -16,4 +16,5 @@ public class Edge {
     public Node getSecondNode() {
         return secondNode;
     }
+
 }
