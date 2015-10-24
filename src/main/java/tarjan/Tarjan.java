@@ -1,24 +1,22 @@
 package tarjan;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Tarjan {
 
-    private Map<Node, Integer> nodeNumbers;
+    private int[] bfsNodeNumbers;
     private int highestNodeNumber;
     private List<Edge> bridges;
 
     public List<Edge> calculate(final Graph graph) {
-        nodeNumbers = new HashMap<>();
+        bfsNodeNumbers = new int[graph.size()];
         highestNodeNumber = 0;
         bridges = new ArrayList<>();
 
         for (Node node : graph.getNodes()) {
-            Integer nodeNumber = nodeNumbers.get(node);
-            if (nodeNumber == null) {
+            int nodeNumber = bfsNodeNumbers[node.getLabel()];
+            if (nodeNumber == 0) {
                 highestNodeNumber = 0;
                 iteration(node, null);
             }
@@ -28,7 +26,8 @@ public class Tarjan {
     }
 
     private int iteration(final Node node, final Node parent) {
-        nodeNumbers.put(node, ++highestNodeNumber);
+        bfsNodeNumbers[node.getLabel()] = ++highestNodeNumber;
+        // First assign nodeNumber to low
         int low = highestNodeNumber;
 
         for (Node neighbor : node.getNeighbors()) {
@@ -36,21 +35,21 @@ public class Tarjan {
                 continue;
             }
 
-            Integer neighborNodeNumber = nodeNumbers.get(neighbor);
-            if (neighborNodeNumber != null) {
-                // Not visited
+            int neighborNodeNumber = bfsNodeNumbers[neighbor.getLabel()];
+            if (neighborNodeNumber > 0) {
+                // Neighbor already visited which means that this edge does not belong to the spanning tree.
                 if (neighborNodeNumber < low) {
                     low = neighborNodeNumber;
                 }
             } else {
-                int temp = iteration(neighbor, node);
-                if (temp < low) {
-                    low = temp;
+                int childLow = iteration(neighbor, node);
+                if (childLow < low) {
+                    low = childLow;
                 }
             }
         }
 
-        if (parent != null && low == nodeNumbers.get(node)) {
+        if (parent != null && low == bfsNodeNumbers[node.getLabel()]) {
             bridges.add(new Edge(parent, node));
         }
 

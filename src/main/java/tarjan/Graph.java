@@ -22,4 +22,8 @@ public class Graph {
     List<Node> getNodes() {
         return nodes;
     }
+
+    public int size() {
+        return nodes.size();
+    }
 }

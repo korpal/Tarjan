@@ -12,13 +12,13 @@ public class TarjanTest {
 
     @Test
     public void firstGraphTest() {
-        Node node0 = new Node("0");
-        Node node1 = new Node("1");
-        Node node2 = new Node("2");
-        Node node3 = new Node("3");
-        Node node4 = new Node("4");
-        Node node5 = new Node("5");
-        Node node6 = new Node("6");
+        Node node0 = new Node(0);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        Node node6 = new Node(6);
 
         node0.addNeighbors(node1, node2, node3);
         node1.addNeighbors(node0, node2, node4);
@@ -35,23 +35,23 @@ public class TarjanTest {
 
         Assert.assertEquals(bridges.size(), 2);
         for (Edge bridge : bridges) {
-            Set<String> labels = new HashSet<>();
+            Set<Integer> labels = new HashSet<>();
             labels.add(bridge.getFirstNode().getLabel());
             labels.add(bridge.getSecondNode().getLabel());
 
-            Assert.assertTrue((labels.contains("0") && labels.contains("3")) ||
-                    (labels.contains("1") && labels.contains("4")));
+            Assert.assertTrue((labels.contains(0) && labels.contains(3)) ||
+                    (labels.contains(1) && labels.contains(4)));
         }
     }
 
     @Test
     public void secondGraphTest() {
-        Node node0 = new Node("0");
-        Node node1 = new Node("1");
-        Node node2 = new Node("2");
-        Node node3 = new Node("3");
-        Node node4 = new Node("4");
-        Node node5 = new Node("5");
+        Node node0 = new Node(0);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
 
         node0.addNeighbors(node1, node2);
         node1.addNeighbors(node0, node2, node4);
@@ -68,10 +68,10 @@ public class TarjanTest {
         Assert.assertEquals(bridges.size(), 1);
 
         Edge bridge = bridges.get(0);
-        Set<String> labels = new HashSet<>();
+        Set<Integer> labels = new HashSet<>();
         labels.add(bridge.getFirstNode().getLabel());
         labels.add(bridge.getSecondNode().getLabel());
 
-        Assert.assertTrue(labels.contains("1") && labels.contains("4"));
+        Assert.assertTrue(labels.contains(1) && labels.contains(4));
     }
 }

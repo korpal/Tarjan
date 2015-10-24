@@ -6,10 +6,10 @@ import java.util.List;
 
 public class Node {
 
-    private String label;
+    private int label;
     private List<Node> neighbors;
 
-    public Node(final String label) {
+    public Node(final int label) {
         this.label = label;
         neighbors = new ArrayList<>();
     }
@@ -22,7 +22,7 @@ public class Node {
         this.neighbors.addAll(Arrays.asList(neighbors));
     }
 
-    public String getLabel() {
+    public int getLabel() {
         return label;
     }
 
