@@ -29,12 +29,17 @@ public class InputReaderTest {
     }
 
     private Node getNodeWithLabel(final int label) {
-        return graph.getNodes().stream().filter(node -> node.getLabel() == label).findFirst().get();
+        return graph.getNodes().stream()
+                .filter(node -> node.getLabel() == label)
+                .findFirst()
+                .get();
     }
 
     private void checkIfNodeHaveExpectedNeighbors(final Node node, final Integer... expectedNeighborLabels) {
         List<Node> neighbors = node.getNeighbors();
-        Set<Integer> neighborLabels = neighbors.stream().map(Node::getLabel).collect(Collectors.toSet());
+        Set<Integer> neighborLabels = neighbors.stream()
+                .map(Node::getLabel)
+                .collect(Collectors.toSet());
 
         for (Integer expectedNeighborLabel : expectedNeighborLabels) {
             Assert.assertTrue(neighborLabels.contains(expectedNeighborLabel));
