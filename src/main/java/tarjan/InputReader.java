@@ -10,6 +10,9 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.*;
 
+/**
+ * Sluzy do wczytania grafu z pliku csv
+ */
 public class InputReader {
 
     private InputStream inputStream;

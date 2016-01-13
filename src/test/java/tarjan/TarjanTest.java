@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Testy poprawnosciowe
+ */
 public class TarjanTest {
 
     private Graph graphA;

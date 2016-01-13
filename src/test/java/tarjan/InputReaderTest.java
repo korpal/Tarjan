@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * Sprawdza poprawnosc wczytywania grafu z pliku csv.
+ */
 public class InputReaderTest {
 
     private Graph graph;

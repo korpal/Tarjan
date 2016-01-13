@@ -5,6 +5,9 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
+/**
+ * Testy wydajnosciowe
+ */
 public class PerformanceTest {
 
     private Graph graphA;
