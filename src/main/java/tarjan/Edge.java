@@ -1,5 +1,9 @@
 package tarjan;
 
+/**
+ * Reprezentuje krawedz - polaczenie pomiedzy dwoma wezlami w grafie.
+ * Uzywane do reprezentacji mostow.
+ */
 public class Edge {
     private Node firstNode;
     private Node secondNode;

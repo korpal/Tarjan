@@ -3,6 +3,9 @@ package tarjan;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Klasa reprezentujaca graf. Zawiera zbior wierzcholkow.
+ */
 public class Graph {
 
     private List<Node> nodes;
