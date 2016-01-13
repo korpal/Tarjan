@@ -25,21 +25,21 @@ public class PerformanceTest {
 
     @Test
     public void graphATest() {
-        for (int i = 0; i < 10000000; i++) {
+        for (int i = 0; i < 100000000; i++) {
             tarjan.calculate(graphA);
         }
     }
 
     @Test
     public void graphBTest() {
-        for (int i = 0; i < 10000000; i++) {
+        for (int i = 0; i < 100000000; i++) {
             tarjan.calculate(graphB);
         }
     }
 
     @Test
     public void graphCTest() {
-        for (int i = 0; i < 10000000; i++) {
+        for (int i = 0; i < 100000000; i++) {
             tarjan.calculate(graphC);
         }
     }
