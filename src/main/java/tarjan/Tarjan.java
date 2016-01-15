@@ -16,8 +16,8 @@ public class Tarjan {
      * Dla podanego grafu zwraca liste krawedzi bedacych wszystkimi mostami w tym grafie.
      */
     public List<Edge> calculate(final Graph graph) {
-        bfsNodeNumbers = new int[graph.size()];
-        highestNodeNumber = 0;
+        bfsNodeNumbers = new int[graph.size()+500];
+        highestNodeNumber = 500;
         bridges = new ArrayList<>();
 
         for (Node node : graph.getNodes()) {

@@ -37,7 +37,7 @@ public class InputReader {
     private Map<Integer, Node> createAllNodes() {
         Map<Integer, Node> nodes = new HashMap<>();
         records.forEach(record -> {
-            Integer nodeLabel = Integer.parseInt(record.get(0));
+            Integer nodeLabel = Integer.parseInt(record.get(0))+500;
             nodes.put(nodeLabel, new Node(nodeLabel));
         });
         return nodes;
@@ -46,7 +46,7 @@ public class InputReader {
     private void addNeighborsToAllNodes() {
         records.forEach(record -> {
             Iterator<String> labels = record.iterator();
-            Integer nodeLabel = Integer.parseInt(labels.next());
+            Integer nodeLabel = Integer.parseInt(labels.next())+500;
             Node node = nodes.get(nodeLabel);
             addNeighbors(node, labels);
         });
@@ -54,7 +54,7 @@ public class InputReader {
 
     private void addNeighbors(final Node node, final Iterator<String> neighborLabels) {
         neighborLabels.forEachRemaining(neighborStrLabel -> {
-            Integer neighborLabel = Integer.parseInt(neighborStrLabel);
+            Integer neighborLabel = Integer.parseInt(neighborStrLabel)+500;
             Node neighbor = nodes.get(neighborLabel);
             node.addNeighbors(neighbor);
         });
